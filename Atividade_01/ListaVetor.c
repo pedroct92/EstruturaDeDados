@@ -1,88 +1,39 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-#define MAX_LISTA 10
-
-typedef enum { FALSE, TRUE } bool;
-
-typedef struct { float V[MAX_LISTA];
-               	 int fim;
-                } Lista;
-
-// ***********************************************
-// ******  initLista                        ******
-// ***********************************************
-
-
-// ***********************************************
-// ******  tamLista                         ******
-// ***********************************************
-
-
-// ***********************************************
-// ******  imprimeLista                     ******
-// ***********************************************
-
-
-// ***********************************************
-// ******  imprimeListaTotal                ******
-// ***********************************************
-
-
-// ***********************************************
-// ******  insereElemento                   ******
-// ***********************************************
-
-// ***********************************************
-// ******  buscaElemento                    ******
-// ***********************************************
-
-
-// ***********************************************
-// ******  removeElemento                   ******
-// ***********************************************
-
-
-// ***********************************************
-// ***********************************************
-// ***********************************************
+#include "ListaVetor.h"
 
 int main() {
+    Lista L;
+    bool OK;
+    int i = 0,n;
 
-Lista L;
-bool OK;
-int i = 0, 
-	n;
+    srand(time(NULL));
 
-    srand ( time(NULL) );
+    imprimeListaTotal(&L);
+    initLista(&L);
+    imprimeLista(&L);
 
-//    imprimeListaTotal;
-//    initLista;
-//    imprimeLista;
-
-    do { 
+    do{
     	float n = rand() % 10;
-//    	OK = insereElemento
-		if (!OK)
-    		break;
-    	i++;
-    } while (i < 10);
-    
+        OK = insereElemento(&L, n);
+		if(!OK)
+            break;
+    }while (1);
 
-//    	imprimeLista;
-//		n = tamLista;
+    imprimeLista(&L);
+    n = tamLista(&L);
 
-    for (i = 0 ; i < n ; i++)
-//		OK = removeElemento     	
-    	if (OK) 
+    for (i = 0 ; i < n ; i++){
+        OK = removeElemento(&L);
+    	if (OK)
     		printf("Remocao %f OK\n", (float)i);
     	else
     		printf("Remocao %f nao OK\n", (float)i);
-    	
-//    imprimeLista;   
-//    imprimeListaTotal;
+    }
 
+    imprimeLista(&L);
+    imprimeListaTotal(&L);
 }
 
-    
+
 

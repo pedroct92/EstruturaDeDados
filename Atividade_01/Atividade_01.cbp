@@ -31,8 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="ListaVetor.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ListaVetor.h">
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Extensions>
 			<code_completion />
