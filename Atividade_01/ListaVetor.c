@@ -24,7 +24,7 @@ int main() {
     n = tamLista(&L);
 
     for (i = 0 ; i < n ; i++){
-        OK = removeElemento(&L);
+        OK = removeElemento(&L, i);
     	if (OK)
     		printf("Remocao %f OK\n", (float)i);
     	else

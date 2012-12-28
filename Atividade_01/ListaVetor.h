@@ -82,7 +82,18 @@ int buscaElemento(Lista *lst, float var){
 // ***********************************************
 // ******  removeElemento                   ******
 // ***********************************************
-bool removeElemento(Lista *lst){
+bool removeElemento(Lista *lst, float var){
     bool retorno = 0;
+    int pos, i;
+
+    pos = buscaElemento(lst,var);
+
+    if(pos != -1){
+        for(i = pos; i < lst->fim; i++){
+            lst->V[i] = lst->V[i+1];
+        }
+        retorno = 1;
+        lst->fim = lst->fim -1;
+    }
     return retorno;
 }
