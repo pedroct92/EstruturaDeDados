@@ -26,7 +26,15 @@ int tamLista(Lista *lst){
 // ******  imprimeLista                     ******
 // ***********************************************
 void imprimeLista(Lista *lst){
+    int i;
 
+    printf("#########> INICIO Lista <##########\n");
+
+    for(i = 0; i< lst->fim+1; i++){
+        printf("{%f} \n", lst->V[i]);
+    }
+
+    printf("##########> FIM Lista <#############\n");
 
 }
 
@@ -61,8 +69,14 @@ bool insereElemento(Lista *lst, float var){
 // ***********************************************
 // ******  buscaElemento                    ******
 // ***********************************************
-int buscaElemento(Lista *lst){
-    return 0;
+int buscaElemento(Lista *lst, float var){
+    int i;
+
+    for(i = 0; i < lst->fim +1; i++){
+        if(lst->V[i] == var)
+            return i;
+    }
+    return -1;
 }
 
 // ***********************************************
