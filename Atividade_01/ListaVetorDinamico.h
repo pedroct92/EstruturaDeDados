@@ -66,7 +66,7 @@ void imprimeListaTotal(Lista *lst){
 
     printf("<<<<<<<< ------ Lista Total ----->>>>>>\n");
     for(i = 0; i < MAX_LISTA; i++){
-        printf("Daddo[%f] Index[%i] Proximo[%d]\n",(float)lst->V[i].dado, (int) i, (int)lst->V[i].prox);
+        printf("Dado[%f] Index[%i] Proximo[%d]\n",(float)lst->V[i].dado, (int) i, (int)lst->V[i].prox);
     }
 }
 
@@ -110,13 +110,22 @@ int buscaElemento(Lista *lst, float var){
 // ******  removeElemento                   ******
 // ***********************************************
 bool removeElemento(Lista *lst, float var){
-    bool ok;
-    int pos;
+    bool ok = 0;
+    int pos, ant;
 
     pos = buscaElemento(lst, var);
 
     if(pos != -1){
+        ant = buscaAnteriorRemover(lst, pos);
 
+        if(ant != -1)
+            lst->V[ant].prox = lst->V[pos].prox;
+        else
+            lst->ini = lst->V[pos].prox;
+
+        lst->V[pos].prox = pos;
+        lst->tm--;
+        ok = 1;
     }
     return ok;
 }
@@ -139,6 +148,11 @@ int buscaAnterior(Lista *lst){
     return -1;
 }
 
-int buscaAnterior(){
-    return 1;
+int buscaAnteriorRemover(Lista *lst, int pos){
+    int i;
+    for(i = 0; i < MAX_LISTA; i++){
+        if(lst->V[i].prox == pos)
+            return i;
+    }
+    return -1;
 }

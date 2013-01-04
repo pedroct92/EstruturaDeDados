@@ -11,12 +11,12 @@ int main(int argc, char** argv) {
     int i = 0, n;
 
     initLista(&L0);
-    //imprimeLista(&L0);
-    //imprimeListaTotal(&L0);
+    imprimeLista(&L0);
+    imprimeListaTotal(&L0);
 
     initLista(&L1);
-    //imprimeLista(&L1);
-    //imprimeListaTotal(&L1);
+    imprimeLista(&L1);
+    imprimeListaTotal(&L1);
 
     do {
     	float n = rand() % 50;
