@@ -10,33 +10,33 @@ int main(int argc, char** argv) {
     bool OK;
     int i = 0, n;
 
-    initLista(&L0);
+    initLista(&L0, 11);
     imprimeLista(&L0);
     imprimeListaTotal(&L0);
 
-    initLista(&L1);
-    imprimeLista(&L1);
-    imprimeListaTotal(&L1);
+    //initLista(&L1, 30);
+    //imprimeLista(&L1);
+    //imprimeListaTotal(&L1);
 
     do {
-    	float n = rand() % 50;
+    	float n = 2;//rand() % 50;
     	OK = insereElemento(&L0, n);
 		if (!OK)
     		break;
     	i++;
-    } while (i < 5);
+    } while (i < L0.max);
 
     i = 0;
-    do {
-    	float n = rand() % 50;
-    	OK = insereElemento(&L1, n);
-		if (!OK)
-    		break;
-    	i++;
-    } while (i < 10);
+   // do {
+   // 	float n = rand() % 50;
+   // 	OK = insereElemento(&L1, n);
+	//	if (!OK)
+    //		break;
+    	//i++;
+    //} while (i < L1.max);
 
    	imprimeLista(&L0);
-   	imprimeLista(&L1);
+   //	imprimeLista(&L1);
 
 	n = tamLista(&L0);
 
@@ -59,8 +59,8 @@ int main(int argc, char** argv) {
     }
 
     imprimeLista(&L0);
-    imprimeLista(&L1);
+    //imprimeLista(&L1);
 
     imprimeListaTotal(&L0);
-    imprimeListaTotal(&L1);
+    //imprimeListaTotal(&L1);
 }
